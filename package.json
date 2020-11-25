@@ -4,8 +4,8 @@
   "description": "a simple chat application using Vue.js front-end and express.js backend",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js"
+    "dev": "nodemon server/app.js",
+    "start": "node server/app.js"
   },
   "author": "Godwin Alexander",
   "license": "ISC",
