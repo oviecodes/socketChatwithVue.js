@@ -2,10 +2,12 @@
 
 const express = require('express');
 const cors = require('cors')
+const history = require('connect-history-api-fallback');
 const mongoose = require('mongoose')
 const { getUser, getUsersInRoom, addUser, deleteUser  } = require('./users')
 
 const app = express()
+
 const http = require('http').createServer(app);
 
 const io = require("socket.io")(http, {
@@ -19,8 +21,14 @@ if(process.env.NODE_ENV === 'production') {
   //static folder
   app.use(express.static(__dirname + '/public'))
 
-  //handle SPA
-  app.get(/.*/, (req, res) => res.sendFile(__dirname, '/public/index.html'));
+  // //handle SPA
+  // app.get(/.*/, (req, res) => res.sendFile(__dirname, '/public/index.html'));
+  
+  app.use(history(
+    {
+      index: '/public/index.html'
+    }
+  ));
 }
 
 const PORT = process.env.PORT || 5000
