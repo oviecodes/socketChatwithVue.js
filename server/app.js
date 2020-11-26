@@ -29,6 +29,7 @@ if(process.env.NODE_ENV === 'production') {
       index: '/public/index.html'
     }
   ));
+  app.use(express.static(__dirname + '/public'))
 }
 
 const PORT = process.env.PORT || 5000
