@@ -26,7 +26,7 @@ if(process.env.NODE_ENV === 'production') {
   
   app.use(history(
     {
-      index: '/public/index.html'
+      index: '/index.html'
     }
   ));
   app.use(express.static(__dirname + '/public'))
